@@ -9,7 +9,11 @@ import androidx.navigation.compose.rememberNavController
 import net.simplifiedcoding.ui.auth.AuthViewModel
 import net.simplifiedcoding.ui.auth.LoginScreen
 import net.simplifiedcoding.ui.auth.SignupScreen
+import net.simplifiedcoding.ui.blog.BlogScreen
+import net.simplifiedcoding.ui.contactUs.ContactsScreen
 import net.simplifiedcoding.ui.home.HomeScreen
+import net.simplifiedcoding.ui.projects.ProjectScreen
+import net.simplifiedcoding.ui.services.ServiceScreen
 
 @Composable
 fun AppNavHost(
@@ -31,6 +35,17 @@ fun AppNavHost(
         }
         composable(ROUTE_HOME) {
             HomeScreen(viewModel, navController)
+        }
+        composable(ROUTE_SERVICES) {
+            ServiceScreen(viewModel , navController )}
+        composable(ROUTE_PROJECTS) {
+            ProjectScreen(viewModel, navController)
+        }
+        composable(ROUTE_BLOG) {
+            BlogScreen(viewModel, navController)
+        }
+        composable(ROUTE_CONTACTS) {
+            ContactsScreen(viewModel , navController)
         }
     }
 }

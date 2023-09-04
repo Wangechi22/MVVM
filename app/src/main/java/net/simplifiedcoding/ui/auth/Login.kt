@@ -11,6 +11,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
@@ -25,8 +26,12 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import net.simplifiedcoding.R
 import net.simplifiedcoding.data.Resource
+import net.simplifiedcoding.navigation.ROUTE_BLOG
+import net.simplifiedcoding.navigation.ROUTE_CONTACTS
 import net.simplifiedcoding.navigation.ROUTE_HOME
 import net.simplifiedcoding.navigation.ROUTE_LOGIN
+import net.simplifiedcoding.navigation.ROUTE_PROJECTS
+import net.simplifiedcoding.navigation.ROUTE_SERVICES
 import net.simplifiedcoding.navigation.ROUTE_SIGNUP
 import net.simplifiedcoding.ui.theme.AppTheme
 import net.simplifiedcoding.ui.theme.spacing
@@ -137,6 +142,34 @@ fun LoginScreen(viewModel: AuthViewModel?, navController: NavController) {
             textAlign = TextAlign.Center,
             color = MaterialTheme.colorScheme.onSurface
         )
+
+
+        Text(text = "Go to Projects",
+            modifier=Modifier.clickable {
+                navController.navigate(ROUTE_PROJECTS) {
+                    popUpTo(ROUTE_LOGIN) { inclusive = true }
+                }
+            })
+        Text(text = "Go to the Services page", color= Color.Green,
+            modifier=Modifier.clickable {
+                navController.navigate(ROUTE_SERVICES) {
+                    popUpTo(ROUTE_LOGIN) { inclusive = true }
+                }
+            })
+        Text(text = "Go to Blog page",
+            modifier=Modifier.clickable {
+                navController.navigate(ROUTE_BLOG) {
+                    popUpTo(ROUTE_LOGIN) { inclusive = true }
+                }
+            }
+            )
+        Text(text = "Go to the Contact s page",
+            modifier=Modifier.clickable {
+                navController.navigate(ROUTE_CONTACTS) {
+                    popUpTo(ROUTE_LOGIN) { inclusive = true }
+                }
+            })
+
 
         loginFlow?.value?.let {
             when (it) {
