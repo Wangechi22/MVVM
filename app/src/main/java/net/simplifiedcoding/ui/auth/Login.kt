@@ -28,6 +28,7 @@ import net.simplifiedcoding.R
 import net.simplifiedcoding.data.Resource
 import net.simplifiedcoding.navigation.ROUTE_BLOG
 import net.simplifiedcoding.navigation.ROUTE_CONTACTS
+import net.simplifiedcoding.navigation.ROUTE_DATA
 import net.simplifiedcoding.navigation.ROUTE_HOME
 import net.simplifiedcoding.navigation.ROUTE_LOGIN
 import net.simplifiedcoding.navigation.ROUTE_PROJECTS
@@ -163,9 +164,15 @@ fun LoginScreen(viewModel: AuthViewModel?, navController: NavController) {
                 }
             }
             )
-        Text(text = "Go to the Contact s page",
+        Text(text = "Go to the Contact page",
             modifier=Modifier.clickable {
                 navController.navigate(ROUTE_CONTACTS) {
+                    popUpTo(ROUTE_LOGIN) { inclusive = true }
+                }
+            })
+        Text(text = "Add data",
+            modifier=Modifier.clickable {
+                navController.navigate(ROUTE_DATA) {
                     popUpTo(ROUTE_LOGIN) { inclusive = true }
                 }
             })
